@@ -1,0 +1,6 @@
+{"case_id":"auto_success","description":"低风险决策自动执行、核验并审计","action":"auto","expected_status":"audited","expected_assignment_side_effects":1,"expected_audit_side_effects":1}
+{"case_id":"manual_approve","description":"高风险决策暂停，人工批准后恢复执行","action":"approve","expected_status":"audited","expected_assignment_side_effects":1,"expected_audit_side_effects":1,"expected_interrupted":true}
+{"case_id":"manual_deny","description":"高风险决策暂停，人工拒绝后只审计不写业务","action":"deny","expected_status":"denied","expected_assignment_side_effects":0,"expected_audit_side_effects":1,"expected_interrupted":true}
+{"case_id":"no_candidate","description":"无合格候选时不允许执行写操作","action":"no_candidate","expected_status":"denied","expected_assignment_side_effects":0,"expected_audit_side_effects":1}
+{"case_id":"recover_verify","description":"核验节点故障后从 Checkpoint 恢复且不重复写","action":"recover_verify","expected_status":"audited","expected_assignment_side_effects":1,"expected_audit_side_effects":1,"expected_checkpoint_recovery":true}
+{"case_id":"skill_write_guard","description":"只读 Skill 无法越权调用派单写 Tool","action":"read_only_blocked","expected_status":"failed","expected_assignment_side_effects":0,"expected_audit_side_effects":0,"expected_blocked":true}

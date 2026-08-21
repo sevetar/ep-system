@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: service-product
+  profiles:
+    active: dev
+  task:
+    scheduling:
+      pool:
+        size: 3
+      thread-name-prefix: flowfix-scheduler-
+      shutdown:
+        await-termination: true
+        await-termination-period: 30s
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        ip: ${NACOS_DISCOVERY_IP:127.0.0.1}

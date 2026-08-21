@@ -1,0 +1,19 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.schoolwork.epsys.acl.mapper.DevicetousersMapper">
+
+    <resultMap id="BaseResultMap" type="com.schoolwork.epsys.model.acl.Devicetousers">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="deviceId" column="device_id" jdbcType="INTEGER"/>
+            <result property="bindingStatus" column="binding_status" jdbcType="VARCHAR"/>
+            <result property="requestId" column="request_id" jdbcType="VARCHAR"/>
+            <result property="failureReason" column="failure_reason" jdbcType="VARCHAR"/>
+            <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,device_id,binding_status,request_id,failure_reason,updated_at
+    </sql>
+</mapper>

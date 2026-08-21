@@ -1,0 +1,57 @@
+[project]
+name = "flowfix-agent"
+version = "0.1.0"
+description = "Controlled agent platform for FlowFix equipment operations"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "aio-pika>=9.5.0,<10",
+  "elasticsearch[async]>=8.19.0,<9",
+  "fastapi>=0.116.0,<1",
+  "httpx>=0.28.0,<1",
+  "langchain-core>=1.0.0,<2",
+  "langchain-openai>=1.0.0,<2",
+  "langchain-text-splitters>=1.0.0,<2",
+  "langgraph>=1.0.0,<2",
+  "langgraph-checkpoint-redis>=0.5.0,<0.6",
+  "mcp>=1.12.4,<2",
+  "pydantic-settings>=2.10.0,<3",
+  "pymysql>=1.1.0,<2",
+  "redis>=6.0.0,<8",
+  "typer>=0.16.0,<1",
+  "uvicorn[standard]>=0.35.0,<1",
+]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.4.0,<10",
+  "pytest-asyncio>=1.1.0,<2",
+  "pytest-cov>=6.2.0,<8",
+  "ruff>=0.12.0,<1",
+  "testcontainers[elasticsearch]>=4.10.0,<5",
+]
+
+[project.scripts]
+flowfix-agent = "flowfix_agent.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/flowfix_agent"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+markers = [
+  "integration: requires real infrastructure",
+  "live: calls an external model provider",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC"]

@@ -1,0 +1,47 @@
+{
+  "skill_id": "sla-first",
+  "skill_version": "1.0.0",
+  "name": "SLA First Dispatch",
+  "description": "Candidate strategy emphasizing SLA readiness with wider eligibility.",
+  "compatible_schema": "dispatch-state/v1",
+  "required_snapshot_fields": [
+    "work_order.work_order_id",
+    "work_order.tenant_id",
+    "work_order.required_skills",
+    "work_order.status",
+    "work_order.version"
+  ],
+  "eligibility_rules": {
+    "require_region_match": false,
+    "max_distance_km": 100.0,
+    "max_load_ratio": 0.95
+  },
+  "scoring_weights": {
+    "distance": 0.15,
+    "load": 0.15,
+    "skill": 0.25,
+    "sla": 0.45
+  },
+  "tie_break_policy": "nearest_then_worker_id",
+  "risk_thresholds": {
+    "minimum_auto_score": 0.5,
+    "minimum_score_margin": 0.01,
+    "force_manual_priorities": []
+  },
+  "tool_policy": {
+    "contract_version": "dispatch-tools/v1",
+    "allowed_read_tools": [
+      "get_work_order_snapshot",
+      "list_eligible_workers",
+      "get_worker_loads",
+      "get_assignment_outcome",
+      "search_dispatch_policy"
+    ],
+    "allowed_write_tools": ["create_assignment", "publish_dispatch_audit"]
+  },
+  "reason_templates": {
+    "selected": "Selected the strongest SLA-ready eligible worker.",
+    "manual": "SLA strategy confidence is insufficient for automatic dispatch."
+  },
+  "created_at": "2026-08-04T00:00:00Z"
+}

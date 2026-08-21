@@ -1,0 +1,46 @@
+server:
+  port: 8200
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: service-acl
+          uri: lb://service-acl
+          predicates:
+            - Path=/user/**,/admin/**,/role/**,/deviceToUser/**
+
+        - id: service-product
+          uri: lb://service-product
+          predicates:
+            - Path=/device/**,/deviceModel/**,/deviceInstance/**,/deviceMaintain/**
+
+
+        - id: service-approval
+          uri: lb://service-approval
+          predicates:
+            - Path=/approval/**
+
+        - id: service-message-http
+          uri: lb://service-message  # HTTP 请求
+          predicates:
+            - Path=/chat/**       # 匹配 HTTP 请求路径
+          filters:
+            - StripPrefix=1          # 去掉路径前缀 /message
+
+        - id: service-message
+          uri: lb:ws://service-message   # 注意是 ws 而不是 http
+          predicates:
+            - Path=/ws
+            - Path=/ws/**
+          filters:
+            - StripPrefix=0
+
+        - id: service-search
+          uri: lb://service-search
+          predicates:
+            - Path=/search/**
+

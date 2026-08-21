@@ -1,0 +1,22 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.venv/
+*.py[cod]
+.runtime/
+*.log
+
+# 内部文档不入库（含面试/归档等非源码内容）。
+docs/
+
+# Claude 个人本地配置（权限白名单、插件开关）不入库。
+.claude/settings.local.json
+**/.claude/settings.local.json
+
+# Generated evaluation outputs may contain prompts or provider metadata.
+evals/reports/*
+!evals/reports/.gitkeep

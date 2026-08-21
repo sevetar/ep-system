@@ -1,0 +1,5 @@
+{"id":"follow-up-pronoun","turns":["设备 DEV-1 的手册怎么说？","它怎么重启？"],"expect_rewrite":true}
+{"id":"separate-thread","thread_ids":["thread-a","thread-b"],"expect_isolation":true}
+{"id":"separate-tenant","tenant_ids":["tenant-a","tenant-b"],"expect_isolation":true}
+{"id":"window-compression","turn_count":6,"recent_limit":4,"expect_summary":true}
+{"id":"finalize","end_conversation":true,"expect_structured_summary":true,"expect_profile_write":false}

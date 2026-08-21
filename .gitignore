@@ -1,0 +1,27 @@
+# Java build and IDE output
+**/target/
+**/.idea/
+**/*.iml
+
+# Frontend dependencies and build output
+**/node_modules/
+**/dist/
+
+# Python local environments and generated output
+agent/.venv/
+agent/.runtime/
+agent/.pytest_cache/
+agent/.ruff_cache/
+agent/**/__pycache__/
+agent/evals/reports/
+
+# Local secrets and environment overrides
+**/.env
+**/.env.*
+!**/.env.example
+agent/**/MODEL_CONNECTION_FILE
+
+# Local files
+**/.DS_Store
+frontend/docs/
+frontend/暂存3.txt

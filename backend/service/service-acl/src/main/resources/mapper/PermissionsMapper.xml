@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.schoolwork.epsys.acl.mapper.PermissionsMapper">
+
+    <resultMap id="BaseResultMap" type="com.schoolwork.epsys.model.acl.Permissions">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="permissionName" column="permission_name" jdbcType="VARCHAR"/>
+        <result property="permissionCode" column="permission_code" jdbcType="VARCHAR"/>
+        <result property="permissionDesc" column="permission_desc" jdbcType="VARCHAR"/>
+        <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,permission_name,permission_code,
+        permission_desc,created_at
+    </sql>
+    
+    <select id="hasPermission" resultType="boolean">
+        SELECT COUNT(1) > 0
+        FROM usertorole ur
+        JOIN roletopermission rp ON ur.role_id = rp.role_id
+        WHERE ur.user_id = #{userId} AND rp.permission_id = #{permissionId}
+    </select>
+    
+</mapper>

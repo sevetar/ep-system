@@ -1,0 +1,48 @@
+{
+  "skill_id": "balanced",
+  "skill_version": "1.0.0",
+  "name": "Balanced Dispatch",
+  "description": "Baseline strategy balancing distance, load, skills and SLA readiness.",
+  "compatible_schema": "dispatch-state/v1",
+  "required_snapshot_fields": [
+    "work_order.work_order_id",
+    "work_order.tenant_id",
+    "work_order.region",
+    "work_order.required_skills",
+    "work_order.status",
+    "work_order.version"
+  ],
+  "eligibility_rules": {
+    "require_region_match": true,
+    "max_distance_km": 50.0,
+    "max_load_ratio": 0.9
+  },
+  "scoring_weights": {
+    "distance": 0.25,
+    "load": 0.35,
+    "skill": 0.25,
+    "sla": 0.15
+  },
+  "tie_break_policy": "lowest_load_then_worker_id",
+  "risk_thresholds": {
+    "minimum_auto_score": 0.55,
+    "minimum_score_margin": 0.02,
+    "force_manual_priorities": ["urgent"]
+  },
+  "tool_policy": {
+    "contract_version": "dispatch-tools/v1",
+    "allowed_read_tools": [
+      "get_work_order_snapshot",
+      "list_eligible_workers",
+      "get_worker_loads",
+      "get_assignment_outcome",
+      "search_dispatch_policy"
+    ],
+    "allowed_write_tools": ["create_assignment", "publish_dispatch_audit"]
+  },
+  "reason_templates": {
+    "selected": "Selected the highest ranked eligible worker.",
+    "manual": "Risk threshold requires manual review."
+  },
+  "created_at": "2026-08-04T00:00:00Z"
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.schoolwork.epsys.device.mapper.MaintainRecordMapper">
+
+    <resultMap id="BaseResultMap" type="com.schoolwork.epsys.model.device.MaintainRecord">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="deviceId" column="device_id" jdbcType="INTEGER"/>
+        <result property="maintenanceType" column="maintenance_type" jdbcType="OTHER"/>
+        <result property="startTime" column="start_time" jdbcType="TIMESTAMP"/>
+        <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+        <result property="operatorId" column="operator_id" jdbcType="INTEGER"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="repairProcess" column="repair_process" jdbcType="VARCHAR"/>
+        <result property="solution" column="solution" jdbcType="VARCHAR"/>
+        <result property="rootCause" column="root_cause" jdbcType="VARCHAR"/>
+        <result property="verificationResult" column="verification_result" jdbcType="VARCHAR"/>
+        <result property="replacedParts" column="replaced_parts" jdbcType="VARCHAR"/>
+        <result property="knowledgeTags" column="knowledge_tags" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="OTHER"/>
+        <result property="approvalId" column="approval_id" jdbcType="INTEGER"/>
+        <result property="approvalTime" column="approval_time" jdbcType="TIMESTAMP"/>
+        <result property="claimDeadline" column="claim_deadline" jdbcType="TIMESTAMP"/>
+        <result property="miantainId" column="miantain_id" jdbcType="INTEGER"/>
+        <result property="version" column="version" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,device_id,maintenance_type,
+        start_time,end_time,operator_id,
+        description,repair_process,solution,root_cause,verification_result,
+        replaced_parts,knowledge_tags,status,approval_id,
+        approval_time,claim_deadline,miantain_id,version
+    </sql>
+</mapper>

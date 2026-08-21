@@ -1,0 +1,63 @@
+server:
+  port: 8084
+
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+mybatis-plus:
+  # 精确限定扫描路径（去掉classpath*:）
+  mapper-locations: classpath:mapper/*.xml
+  # 必须添加实体类包扫描,为实体类设置别名
+  type-aliases-package: com.schoolwork.epsys.model
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3308/users?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: "${MYSQL_PASSWORD:change-me-local}"
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: "${RABBITMQ_PASSWORD:change-me-local}"
+    virtual-host: /
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      mandatory: true
+  data:
+    redis:
+      host: localhost  # 新版本的配置位置
+      port: 6379
+      database: 0
+      timeout: 1800000
+      password:
+      lettuce:
+        pool:
+          max-active: 20
+          max-wait: -1
+          max-idle: 5
+          min-idle: 0
+  redis:
+    redisson:
+      config: |
+        singleServerConfig:
+          address: "redis://localhost:6379"
+          database: 0
+          password: null
+          connectionMinimumIdleSize: 10
+          connectionPoolSize: 64
+          timeout: 3000
+          pingConnectionInterval: 10000
+        threads: 16
+        nettyThreads: 32
+        codec: !<org.redisson.codec.JsonJacksonCodec> {}
+        transportMode: "NIO"
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8

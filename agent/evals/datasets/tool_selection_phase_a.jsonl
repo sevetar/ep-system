@@ -1,0 +1,6 @@
+{"id":"qa-fixed-search","chain":"qa","allowed":["knowledge.search"],"expected":"knowledge.search"}
+{"id":"investigation-search","chain":"investigation","allowed":["knowledge.search"],"expected":"knowledge.search"}
+{"id":"investigation-write-denied","chain":"investigation","allowed":["knowledge.search"],"requested":"assignment.create","expected_error":"authorization"}
+{"id":"invalid-arguments","chain":"investigation","requested":"knowledge.search","arguments":{},"expected_error":"invalid_arguments"}
+{"id":"duplicate-call","chain":"investigation","repeat":true,"expected_stop_reason":"blocked"}
+{"id":"budget","chain":"investigation","max_steps":1,"expected_stop_reason":"budget_exhausted"}

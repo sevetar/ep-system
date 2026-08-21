@@ -1,0 +1,6 @@
+{"id":"diagnosis-only","incident":"设备DEV-1单一报警","expected_roles":["diagnosis"]}
+{"id":"diagnosis-impact","incident":"设备DEV-2停机并影响下游","expected_roles":["diagnosis","impact_safety"]}
+{"id":"resource-needed","incident":"已知故障等待维修资源","expected_roles":["resource_planning"]}
+{"id":"new-evidence-replan","incident":"新日志推翻初始假设","expected_trigger":"new_evidence"}
+{"id":"worker-conflict","incident":"诊断与影响结论冲突","expected_trigger":"artifact_conflict"}
+{"id":"resource-unavailable","incident":"关键备件不可用","expected_trigger":"resource_unavailable"}

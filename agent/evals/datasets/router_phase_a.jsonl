@@ -1,0 +1,50 @@
+{"id":"qa-manual","message":"设备手册里如何重启？","expected_route":"KNOWLEDGE_QA"}
+{"id":"qa-services-doc","message":"文档中记录了哪些服务？","expected_route":"KNOWLEDGE_QA"}
+{"id":"qa-sop-frequency","message":"SOP 对巡检频率怎么说？","expected_route":"KNOWLEDGE_QA"}
+{"id":"qa-permission-description","message":"用户权限说明在哪里？","expected_route":"KNOWLEDGE_QA"}
+{"id":"qa-gateway-operation","message":"网关如何操作？","expected_route":"KNOWLEDGE_QA"}
+{"id":"qa-english-sop","message":"What does the SOP require?","expected_route":"KNOWLEDGE_QA"}
+{"id":"qa-architecture-doc","message":"请查一下系统架构文档","expected_route":"KNOWLEDGE_QA"}
+{"id":"qa-maintenance-policy","message":"设备维护规定是什么？","expected_route":"KNOWLEDGE_QA"}
+{"id":"qa-interface-question","message":"这个接口怎么用？","expected_route":"KNOWLEDGE_QA"}
+{"id":"qa-rabbit-config","message":"RabbitMQ 的配置在哪里？","expected_route":"KNOWLEDGE_QA"}
+{"id":"qa-version-rule","message":"请说明版本号规则","expected_route":"KNOWLEDGE_QA"}
+{"id":"qa-history-retention","message":"历史消息保存多久？","expected_route":"KNOWLEDGE_QA"}
+{"id":"dispatch-explicit","message":"把工单 WO-100 派给维修员","expected_route":"DIRECT_DISPATCH"}
+{"id":"dispatch-intent-only","message":"帮我派单","expected_route":"DIRECT_DISPATCH"}
+{"id":"dispatch-worker-name","message":"派给维修员 worker-7","expected_route":"DIRECT_DISPATCH"}
+{"id":"dispatch-work-order-cn","message":"工单：WO-203 立即派给张师傅","expected_route":"DIRECT_DISPATCH"}
+{"id":"dispatch-work-order-hash","message":"请 dispatch work order #WO-204","expected_route":"DIRECT_DISPATCH"}
+{"id":"dispatch-english-assign","message":"Assign work order WO-205 to technician-2","expected_route":"DIRECT_DISPATCH"}
+{"id":"dispatch-uppercase","message":"DISPATCH WO-206","expected_route":"DIRECT_DISPATCH"}
+{"id":"dispatch-reassign","message":"把 WO-207 重新派单","expected_route":"DIRECT_DISPATCH"}
+{"id":"dispatch-specific-repairman","message":"维修员 91001 接这个工单 WO-208","expected_route":"DIRECT_DISPATCH"}
+{"id":"dispatch-polite","message":"麻烦安排维修员处理 WO-209","expected_route":"DIRECT_DISPATCH"}
+{"id":"dispatch-colon-id","message":"派单，工单号: WO_210","expected_route":"DIRECT_DISPATCH"}
+{"id":"dispatch-hyphen-id","message":"把工单 WO-211 派给值班维修员","expected_route":"DIRECT_DISPATCH"}
+{"id":"incident-explicit","message":"调查设备 DEV-7 的停机根因","expected_route":"INCIDENT_INVESTIGATION"}
+{"id":"incident-intent-only","message":"为什么停机？","expected_route":"INCIDENT_INVESTIGATION"}
+{"id":"incident-alarm","message":"设备 DEV-8 一直报警","expected_route":"INCIDENT_INVESTIGATION"}
+{"id":"incident-fault","message":"排查 device DEV-9 的故障","expected_route":"INCIDENT_INVESTIGATION"}
+{"id":"incident-abnormal","message":"生产线出现异常，请调查","expected_route":"INCIDENT_INVESTIGATION"}
+{"id":"incident-root-cause","message":"分析根因和影响范围","expected_route":"INCIDENT_INVESTIGATION"}
+{"id":"incident-english","message":"Investigate incident on device DEV-10","expected_route":"INCIDENT_INVESTIGATION"}
+{"id":"incident-with-dispatch-proposal","message":"调查设备 DEV-11 故障并给出派单建议","expected_route":"INCIDENT_INVESTIGATION"}
+{"id":"incident-with-worker-proposal","message":"设备 DEV-12 停机，分析后推荐维修员","expected_route":"INCIDENT_INVESTIGATION"}
+{"id":"incident-mixed-case-device","message":"DEVICE Dev_13 报警，请调查原因","expected_route":"INCIDENT_INVESTIGATION"}
+{"id":"incident-no-device","message":"昨晚的异常是什么原因","expected_route":"INCIDENT_INVESTIGATION"}
+{"id":"incident-chain","message":"调查故障传播链和下游影响","expected_route":"INCIDENT_INVESTIGATION"}
+{"id":"incident-root-cause-short","message":"根因分析","expected_route":"INCIDENT_INVESTIGATION"}
+{"id":"unclear","message":"帮我处理一下","expected_route":"NEEDS_CLARIFICATION","missing_fields":["intent"]}
+{"id":"unclear-empty-space","message":"   ","expected_route":"NEEDS_CLARIFICATION","missing_fields":["intent"]}
+{"id":"unclear-greeting","message":"你好","expected_route":"NEEDS_CLARIFICATION","missing_fields":["intent"]}
+{"id":"unclear-pronoun","message":"就按刚才那个来","expected_route":"NEEDS_CLARIFICATION","missing_fields":["intent"]}
+{"id":"unclear-id-only","message":"WO-300","expected_route":"NEEDS_CLARIFICATION","missing_fields":["intent"]}
+{"id":"unclear-device-only","message":"设备 DEV-20","expected_route":"NEEDS_CLARIFICATION","missing_fields":["intent"]}
+{"id":"unclear-action","message":"执行一下","expected_route":"NEEDS_CLARIFICATION","missing_fields":["intent"]}
+{"id":"unclear-confirm","message":"确认","expected_route":"NEEDS_CLARIFICATION","missing_fields":["intent"]}
+{"id":"unclear-number","message":"12345","expected_route":"NEEDS_CLARIFICATION","missing_fields":["intent"]}
+{"id":"unclear-context","message":"还是原来的方案","expected_route":"NEEDS_CLARIFICATION","missing_fields":["intent"]}
+{"id":"unclear-english","message":"Please handle it","expected_route":"NEEDS_CLARIFICATION","missing_fields":["intent"]}
+{"id":"unclear-ellipsis","message":"继续……","expected_route":"NEEDS_CLARIFICATION","missing_fields":["intent"]}
+{"id":"unclear-ack","message":"收到，下一步","expected_route":"NEEDS_CLARIFICATION","missing_fields":["intent"]}
